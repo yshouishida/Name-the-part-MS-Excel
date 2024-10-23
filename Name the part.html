@@ -80,15 +80,17 @@
 
         function getRandomWord() {
             const availableWords = themes[currentTheme];
-            const filteredWords = availableWords.filter((_, index) => !previousWords.includes(index));
-
+            const filteredWords = availableWords.filter((word, index) => 
+                !previousWords.includes(index) && word.description !== currentWord
+            );
+        
             if (filteredWords.length === 0) {
                 previousWords = [];
                 return getRandomWord();
             }
-
+        
             const randomIndex = Math.floor(Math.random() * filteredWords.length);
-            previousWords.push(randomIndex);
+            previousWords.push(availableWords.indexOf(filteredWords[randomIndex])); // Store the original index
             return filteredWords[randomIndex];
         }
 
