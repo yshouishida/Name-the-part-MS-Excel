@@ -121,7 +121,7 @@ button#generate:hover {
 /* Modal image */
 #displayedImage {
     cursor: pointer;
-    width: 45%;
+    width: 75%;
 }
 
 #modal-image {
